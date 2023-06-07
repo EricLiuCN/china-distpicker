@@ -81,15 +81,19 @@ $form->distpicker(['province_id', 'city_id', 'district_id'])->autoselect(1);
 
 ```
 
+设置地区code或者name 默认code
+
+```php
+$form->distpicker(['province_id', 'city_id', 'district_id'])->valuetype('name');
+
+```
+
 ### 表格筛选中使用
 
 ```php
 $filter->distpicker('province_id', 'city_id', 'district_id', '地域选择');
 ```
 
-## 地区编码数据
-
-[Distpicker](https://github.com/fengyuanchen/distpicker)所使用的地域编码是基于国家统计局发布的数据, 数据字典为`china_area.sql`文件.
 
 ## 支持
 
