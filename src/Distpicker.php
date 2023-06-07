@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\ChinaDistpicker;
+namespace Ericliucn\ChinaDistpicker;
 
 use Encore\Admin\Form\Field;
 use Illuminate\Support\Arr;
