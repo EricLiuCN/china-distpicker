@@ -1,12 +1,12 @@
 <?php
 
-namespace Ericliucn\ChinaDistpicker;
+namespace Ericliucn\Distpicker;
 
 use Encore\Admin\Extension;
 
 class ChinaDistpicker extends Extension
 {
-    public $name = 'china-distpicker';
+    public $name = 'distpicker';
 
     public $views = __DIR__.'/../resources/views';
 

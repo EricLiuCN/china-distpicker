@@ -1,6 +1,6 @@
 <?php
 
-namespace Ericliucn\ChinaDistpicker;
+namespace Ericliucn\Distpicker;
 
 use Encore\Admin\Admin;
 use Encore\Admin\Grid\Filter\AbstractFilter;
@@ -23,6 +23,11 @@ class DistpickerFilter extends AbstractFilter
      * @var array
      */
     protected $defaultValue = [];
+
+    /**
+     * @var string
+     */
+    protected $valueType = 'code';
 
     /**
      * DistpickerFilter constructor.
@@ -115,6 +120,16 @@ class DistpickerFilter extends AbstractFilter
     }
 
     /**
+     * 设置筛选类型
+     */
+    public function valuetype($type)
+    {
+        $this->valueType = $type;
+
+        return $this;
+    }
+
+    /**
      * Setup js scripts.
      */
     protected function setupScript()
@@ -125,6 +140,7 @@ class DistpickerFilter extends AbstractFilter
 
         $script = <<<EOT
 $("#{$this->id}").distpicker({
+  valueType: '$this->valueType',
   province: '$province',
   city: '$city',
   district: '$district'
@@ -146,6 +162,7 @@ EOT;
             'id'        => $this->id,
             'name'      => $this->formatName($this->column),
             'label'     => $this->label,
+            'valueType' => $this->valueType,
             'value'     => $this->value ?: $this->defaultValue,
             'presenter' => $this->presenter(),
         ], $this->presenter()->variables());

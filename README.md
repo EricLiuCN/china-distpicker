@@ -10,12 +10,12 @@ Distpicker extension for laravel-admin
 ## 安装
 
 ```bash
-composer require ericliucn/china-distpicker
+composer require ericliucn/distpicker
 ```
 
 然后
 ```bash
-php artisan vendor:publish --tag=laravel-admin-china-distpicker
+php artisan vendor:publish --tag=laravel-admin-distpicker
 ```
 
 ## 配置
@@ -25,7 +25,7 @@ php artisan vendor:publish --tag=laravel-admin-china-distpicker
 
     'extensions' => [
 
-        'china-distpicker' => [
+        'distpicker' => [
         
             // 如果要关掉这个扩展，设置为false
             'enable' => true,
@@ -91,7 +91,7 @@ $form->distpicker(['province_id', 'city_id', 'district_id'])->valuetype('name');
 ### 表格筛选中使用
 
 ```php
-$filter->distpicker('province_id', 'city_id', 'district_id', '地域选择');
+$filter->distpicker('province_id', 'city_id', 'district_id', '地域选择')->valuetype('name');
 ```
 
 

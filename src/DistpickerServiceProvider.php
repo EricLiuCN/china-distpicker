@@ -1,13 +1,13 @@
 <?php
 
-namespace Ericliucn\ChinaDistpicker;
+namespace Ericliucn\Distpicker;
 
 use Encore\Admin\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid\Filter;
 use Illuminate\Support\ServiceProvider;
 
-class ChinaDistpickerServiceProvider extends ServiceProvider
+class DistpickerServiceProvider extends ServiceProvider
 {
     /**
      * {@inheritdoc}
@@ -19,13 +19,13 @@ class ChinaDistpickerServiceProvider extends ServiceProvider
         }
 
         if ($views = $extension->views()) {
-            $this->loadViewsFrom($views, 'laravel-admin-china-distpicker');
+            $this->loadViewsFrom($views, 'laravel-admin-distpicker');
         }
 
         if ($this->app->runningInConsole() && $assets = $extension->assets()) {
             $this->publishes(
-                [$assets => public_path('vendor/laravel-admin-ext/china-distpicker')],
-                'laravel-admin-china-distpicker'
+                [$assets => public_path('vendor/ericliucn/distpicker')],
+                'laravel-admin-distpicker'
             );
         }
 
