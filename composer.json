@@ -1,5 +1,5 @@
 {
-    "name": "laravel-admin-ext/china-distpicker",
+    "name": "ericliucn/china-distpicker",
     "description": "Distpicker extension for laravel-admin",
     "type": "library",
     "keywords": ["laravel-admin", "extension", "distpicker"],
@@ -7,8 +7,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "song",
-            "email": "zosong@126.com"
+            "name": "ericliucn",
+            "email": "937634795@qq.com"
         }
     ],
     "require": {

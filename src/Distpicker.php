@@ -25,6 +25,11 @@ class Distpicker extends Field
     protected $columnKeys = ['province', 'city', 'district'];
 
     /**
+     * @var string
+     */
+    protected $valueType = 'code';
+
+    /**
      * @var array
      */
     protected $placeholder = [];
@@ -81,12 +86,20 @@ class Distpicker extends Field
     }
 
     /**
+     * @param int $count
+     * @return $this
+     */
+    public function valuetype($type = 'code')
+    {
+        $this->valueType = $type;
+        return $this->attribute('data-value-type', $type);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function render()
     {
-        $this->attribute('data-value-type', 'code');
-
         $province = old($this->column['province'], Arr::get($this->value(), 'province')) ?: Arr::get($this->placeholder, 'province');
         $city     = old($this->column['city'],     Arr::get($this->value(), 'city'))     ?: Arr::get($this->placeholder, 'city');
         $district = old($this->column['district'], Arr::get($this->value(), 'district')) ?: Arr::get($this->placeholder, 'district');
@@ -95,6 +108,7 @@ class Distpicker extends Field
 
         $this->script = <<<EOT
 $("#{$id}").distpicker({
+  valueType: '$this->valueType',
   province: '$province',
   city: '$city',
   district: '$district'
